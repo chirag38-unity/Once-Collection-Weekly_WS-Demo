@@ -43,6 +43,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     signingConfigs {
@@ -70,10 +71,8 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
-            versionNameSuffix = "_rel"
         }
         getByName("debug") {
-            versionNameSuffix = "_dev"
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -98,10 +97,24 @@ android {
         }
     }
 
-    applicationVariants.all {
+    applicationVariants.configureEach {
         addJavaSourceFoldersToModel(
             File(layout.buildDirectory.asFile.get(), "generated/ksp/$name/kotlin")
         )
+        outputs.configureEach {
+
+        }
+        this.outputs
+            .map { it as com.android.build.gradle.internal.api.ApkVariantOutputImpl }
+            .forEach { output ->
+                val variant = this.buildType.name
+                var apkName =
+                    "OCW" + "_" + this.versionName
+                if (variant.isNotEmpty()) apkName += "_$variant"
+                apkName += ".apk"
+                println("ApkName=$apkName ${this.buildType.name}")
+                output.outputFileName = apkName
+            }
     }
 
 }

@@ -31,6 +31,8 @@ class KtorRepositoryImpl constructor ( private val client: HttpClient ) : StoreR
 
 
     override suspend fun getData(
+        categoryId: String,
+        productId: String,
         languageId: String,
         storeId: String
     ): Result<FetchProductDetailsResponse, DataError> {
@@ -42,7 +44,7 @@ class KtorRepositoryImpl constructor ( private val client: HttpClient ) : StoreR
                 coroutineContext.ensureActive()
 
                 response = client.get {
-                    url(Webservices.PRODUCT_DETAILS)
+                    url(Webservices.getProductDetails( categoryId = categoryId, productId = productId ))
                     parameter("lang", languageId)
                     parameter("store", storeId)
                 }

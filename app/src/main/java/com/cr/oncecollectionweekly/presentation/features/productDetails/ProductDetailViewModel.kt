@@ -52,6 +52,8 @@ class ProductDetailViewModel constructor (
             }
 
             val res = storeUseCase.getData(
+                categoryId = "6701",
+                productId = "253620",
                 languageId = "en",
                 storeId = "KWD"
             )
@@ -83,6 +85,8 @@ class ProductDetailViewModel constructor (
             }
 
             val res = storeUseCase.getData(
+                categoryId = "6701",
+                productId = "253620",
                 languageId = "en",
                 storeId = "KWD"
             )

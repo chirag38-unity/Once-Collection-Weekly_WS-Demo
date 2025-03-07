@@ -10,9 +10,10 @@ class GetData constructor (
 ) {
 
     suspend operator fun invoke (
+        categoryId: String, productId: String,
         languageId: String, storeId: String
     ) : Result<FetchProductDetailsResponse, DataError> {
-        return storeRepository.getData(languageId = languageId, storeId = storeId)
+        return storeRepository.getData( categoryId = categoryId, productId = productId, languageId = languageId, storeId = storeId)
     }
 
 }

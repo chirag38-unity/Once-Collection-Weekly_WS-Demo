@@ -5,7 +5,7 @@ data class ProductData(
     val brandName : String,
     val sku : String,
     val name : String,
-    val price : String,
+    val price : Double,
     val image : String,
     val description : String,
     val images : List<String>,

@@ -6,6 +6,9 @@ import com.cr.oncecollectionweekly.utils.Result
 
 interface StoreRepository {
 
-    suspend fun getData(languageId: String, storeId: String) : Result<FetchProductDetailsResponse, DataError>
+    suspend fun getData(
+        categoryId: String, productId: String,
+        languageId: String, storeId: String
+    ) : Result<FetchProductDetailsResponse, DataError>
 
 }

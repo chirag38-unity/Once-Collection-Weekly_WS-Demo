@@ -43,7 +43,7 @@ val appModule = module {
 
     single <StoreUseCase> {
         StoreUseCase(
-            getData = GetData(get(named("ktor")))
+            getData = GetData(get(named("retrofit")))
         )
     }
 

@@ -41,6 +41,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.HorizontalDivider
@@ -82,6 +83,7 @@ import androidx.core.text.HtmlCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
+import com.cr.oncecollectionweekly.R
 import com.cr.oncecollectionweekly.domain.models.FetchProductDetailsResponse
 import com.cr.oncecollectionweekly.domain.models.ProductData
 import com.cr.oncecollectionweekly.ui.components.NoInternetScreen
@@ -353,7 +355,7 @@ private fun ProductDetailScreenContent(
                     }
 
                     Text(
-                        text = " ${productData.price} KWD",
+                        text = String.format("%.2f KWD", productData.price),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary
@@ -407,6 +409,59 @@ private fun ProductDetailScreenContent(
                                 contentScale = ContentScale.Fit
                             )
                         }
+                    }
+
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Tabby Card ----------------------------------------------------------------------
+
+                Card (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    colors = CardDefaults.elevatedCardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainer
+                    ),
+                    elevation = CardDefaults.elevatedCardElevation()
+                ) {
+
+                    Row (
+                        modifier = Modifier.fillMaxWidth()
+                            .padding( horizontal =  4.dp, vertical = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column (
+                            modifier = Modifier.weight(1f)
+                                .padding(start = 10.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.Start
+                        ) {
+                            Text(
+                                text = "or 4 interest-free payments",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+
+                            Text(
+                                text = String.format("%.2f KWD", productData.price.div(4)),
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.Bold
+                            )
+
+                        }
+
+                        SubcomposeAsyncImage(
+                            model = ImageRequest.Builder(LocalContext.current)
+                                .data(R.drawable.tabby_logo)
+                                .build(),
+                            contentDescription = productData.name,
+                            modifier = Modifier
+                                .width(80.dp),
+                            contentScale = ContentScale.Fit
+                        )
+
                     }
 
                 }
