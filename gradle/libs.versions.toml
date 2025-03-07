@@ -1,0 +1,148 @@
+[versions]
+agp = "8.8.2"
+kotlin = "2.1.0"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.10.1"
+composeBom = "2025.02.00"
+
+# Google & Material3 ----------------
+coreSplashscreen = "1.0.1"
+uiTextGoogleFonts = "1.7.8"
+materialIcons = "1.7.8"
+
+# Koin ---------------------
+koin-bom = "4.0.2"
+
+# KTOR ---------------------
+ktorVersion = "3.1.1"
+retrofitVersion = "2.11.0"
+
+# Compose Destinations -----
+composeDestinations = "2.1.0-beta12"
+
+# Logging ------------------
+napier = "2.6.1"
+
+# Coil & Lottie & UI------------
+coil3Compose = "3.0.0-rc02"
+composeShimmer = "1.2.0"
+composeMaterial3Pullrefresh = "1.0.0"
+lottieCompose = "6.6.0"
+
+# Serialize Parcelize ------
+kspVersion = "2.1.0-1.0.29"
+serializationJSON = "1.8.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# Google & Material3 -------------------------------------------------------------------------------
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+material-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIcons" }
+
+# Logging ------------------------------------------------------------------------------------------
+napier = {module = "io.github.aakira:napier", version.ref = "napier"}
+
+# UI -----------------------------------------------------------------------------------------------
+compose-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeShimmer" }
+compose-material3-pullrefresh = { module = "eu.bambooapps:compose-material3-pullrefresh", version.ref = "composeMaterial3Pullrefresh" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
+
+# COIL ---------------------------------------------------------------------------------------------
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil3Compose" }
+coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil3Compose" }
+coil-network-ktor2 = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil3Compose" }
+coil-network-ktor3 = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil3Compose" }
+coil-mp = { module = "io.coil-kt.coil3:coil", version.ref = "coil3Compose" }
+
+# Serialization ------------------------------------------------------------------------------------
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJSON" }
+
+# Ktor ----------------------------------------------------------------------------------------------------------------
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktorVersion" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorVersion" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization-jvm", version.ref = "ktorVersion" }
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktorVersion" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
+ktor-serialization-xml = { module = "io.ktor:ktor-serialization-kotlinx-xml", version.ref = "ktorVersion" }
+
+# Retrofit -----------------------------------------------------------------------------------------
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }
+retrofit-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofitVersion" }
+
+# Koin ---------------------------------------------------------------------------------------------
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-androidx-workmanager = { module = "io.insert-koin:koin-androidx-workmanager" }
+koin-androidx-startup = { module = "io.insert-koin:koin-androidx-startup" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+koin-androidx-compose-navigation = { module = "io.insert-koin:koin-androidx-compose-navigation" }
+koin-compose = { module = "io.insert-koin:koin-compose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#KSP ---------------------------------------------------
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+#Serialization & Parcelize ---------------------------------------
+kotlinPluginSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[bundles]
+ktor = [
+    "ktor-client-cio",
+    "ktor-client-core",
+    "ktor-client-content-negotiation",
+    "ktor-client-auth",
+    "ktor-client-logging",
+    "ktor-client-serialization",
+    "ktor-serialization-kotlinx-json",
+    "ktor-serialization-xml",
+]
+
+retrofit = [
+    "retrofit",
+    "retrofit-converter-gson",
+    "retrofit-converter-scalars"
+]
+
+koin = [
+    "koin-core",
+    "koin-android",
+    "koin-androidx-compose",
+    "koin-androidx-compose-navigation"
+]
+
+coil = [
+    "coil-compose",
+    "coil-compose-core",
+    "coil-network-ktor2",
+    "coil-network-ktor3",
+    "coil-mp"
+]
+
