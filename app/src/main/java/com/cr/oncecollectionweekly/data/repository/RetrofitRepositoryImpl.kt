@@ -5,9 +5,11 @@ import com.cr.oncecollectionweekly.data.remote.RetrofitInterface
 import com.cr.oncecollectionweekly.domain.models.FetchProductDetailsResponse
 import com.cr.oncecollectionweekly.utils.DataError
 import com.cr.oncecollectionweekly.utils.Result
+import com.google.gson.JsonParseException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
+import okio.IOException
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
@@ -46,8 +48,12 @@ class RetrofitRepositoryImpl constructor(
                 return@withContext(Result.Error(DataError.NetworkError.CONFLICT))
             } catch (e : ConnectException) {
                 return@withContext(Result.Error(DataError.NetworkError.NO_INTERNET))
+            } catch (e : IOException) {
+                return@withContext(Result.Error(DataError.NetworkError.NO_INTERNET))
             } catch (e : SocketTimeoutException) {
                 return@withContext(Result.Error(DataError.NetworkError.REQUEST_TIMEOUT))
+            } catch (e : JsonParseException) {
+                return@withContext(Result.Error(DataError.NetworkError.SERIALIZATION))
             } catch(e: CancellationException) {
                 return@withContext(Result.Error(DataError.NetworkError.CANCELLED))
             } catch (e : HttpException) {
